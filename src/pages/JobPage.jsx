@@ -11,9 +11,11 @@ const JobPage = ({ deleteJob }) => {
     const { id } = useParams();
     const job = useLoaderData();
 
+    console.log(job)
+
     const onDeleteClick = (jobId) => {
         const confirm = window.confirm("You sure?")
-
+        console.log(jobId)//test bug
         if (!confirm) return;
 
         deleteJob(jobId);
@@ -80,10 +82,10 @@ const JobPage = ({ deleteJob }) => {
                                 <div className="bg-white p-6 rounded-lg shadow-md">
                                     <h3 className="text-xl font-bold mb-6">Company Info</h3>
 
-                                    <h2 className="text-2xl">{job.company.name}</h2>
+                                    <h2 className="text-2xl">{job.companyName}</h2>
 
                                     <p className="my-2">
-                                        {job.company.description}
+                                        {job.companyDescription}
                                     </p>
 
                                     <hr className="my-4" />
@@ -91,12 +93,12 @@ const JobPage = ({ deleteJob }) => {
                                     <h3 className="text-xl">Contact Email:</h3>
 
                                     <p className="my-2 bg-indigo-100 p-2 font-bold">
-                                        {job.company.contactEmail}
+                                        {job.companyEmail}
                                     </p>
 
                                     <h3 className="text-xl">Contact Phone:</h3>
 
-                                    <p className="my-2 bg-indigo-100 p-2 font-bold">{job.company.contactPhone}</p>
+                                    <p className="my-2 bg-indigo-100 p-2 font-bold">{job.companyPhone}</p>
                                 </div>
 
                                 {/* <!-- Manage --> */}

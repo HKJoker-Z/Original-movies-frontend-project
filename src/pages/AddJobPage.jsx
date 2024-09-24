@@ -12,8 +12,8 @@ const AddJobPage = ({ addJobSubmit }) => {
     const [salary, setSalary] = useState('Under $50K');
     const [companyName, setCompanyName] = useState('');
     const [companyDescription, setCompanyDescription] = useState('');
-    const [contactEmail, setContactEmail] = useState('');
-    const [contactPhone, setContactPhone] = useState('');
+    const [companyPhone, setCompanyPhone] = useState('');
+    const [companyEmail, setCompanyEmail] = useState('');
 
     const navigate = useNavigate();
 
@@ -26,12 +26,10 @@ const AddJobPage = ({ addJobSubmit }) => {
             location,
             description,
             salary,
-            company: {
-                name: companyName,
-                description: companyDescription,
-                contactEmail,
-                contactPhone
-            }
+            companyName,
+            companyDescription,
+            companyPhone,
+            companyEmail
         }
 
         addJobSubmit(newJob);
@@ -186,13 +184,13 @@ const AddJobPage = ({ addJobSubmit }) => {
                                 >
                                 <input
                                     type="email"
-                                    id="contact_email"
-                                    name="contact_email"
+                                    id="company_email"
+                                    name="company_email"
                                     className="border rounded w-full py-2 px-3"
                                     placeholder="Email address for applicants"
                                     required
-                                    value={contactEmail}
-                                    onChange={(e) => setContactEmail(e.target.value)}
+                                    value={companyEmail}
+                                    onChange={(e) => setCompanyEmail(e.target.value)}
                                 />
                             </div>
                             <div className="mb-4">
@@ -203,12 +201,12 @@ const AddJobPage = ({ addJobSubmit }) => {
                                 >
                                 <input
                                     type="tel"
-                                    id="contact_phone"
-                                    name="contact_phone"
+                                    id="company_phone"
+                                    name="company_phone"
                                     className="border rounded w-full py-2 px-3"
                                     placeholder="Optional phone for applicants"
-                                    value={contactPhone}
-                                    onChange={(e) => setContactPhone(e.target.value)}
+                                    value={companyPhone}
+                                    onChange={(e) => setCompanyPhone(e.target.value)}
                                 />
                             </div>
 

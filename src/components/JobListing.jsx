@@ -10,6 +10,8 @@ const JobListing = ({ job }) => {
 
     if (!showFullDescription) {
         description = description.substring(0, 90) + '...';
+        // description = description;
+
     }
 
     return (

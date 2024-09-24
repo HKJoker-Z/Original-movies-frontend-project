@@ -11,10 +11,10 @@ const EditJobPage = ({ updateJobSubmit }) => {
     const [location, setLocation] = useState(job.location);
     const [description, setDescription] = useState(job.description);
     const [salary, setSalary] = useState(job.salary);
-    const [companyName, setCompanyName] = useState(job.company.name);
-    const [companyDescription, setCompanyDescription] = useState(job.company.description);
-    const [contactEmail, setContactEmail] = useState(job.company.contactEmail);
-    const [contactPhone, setContactPhone] = useState(job.company.contactPhone);
+    const [companyName, setCompanyName] = useState(job.companyName);
+    const [companyDescription, setCompanyDescription] = useState(job.companyDescription);
+    const [companyPhone, setCompanyPhone] = useState(job.companyPhone);
+    const [companyEmail, setCompanyEmail] = useState(job.companyEmail);
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -29,12 +29,10 @@ const EditJobPage = ({ updateJobSubmit }) => {
             location,
             description,
             salary,
-            company: {
-                name: companyName,
-                description: companyDescription,
-                contactEmail,
-                contactPhone
-            }
+            companyName,
+            companyDescription,
+            companyPhone,
+            companyEmail
         }
 
         updateJobSubmit(updatedJob);
@@ -183,19 +181,19 @@ const EditJobPage = ({ updateJobSubmit }) => {
 
                             <div className="mb-4">
                                 <label
-                                    htmlFor="contact_email"
+                                    htmlFor="company_email"
                                     className="block text-gray-700 font-bold mb-2"
                                 >Contact Email</label
                                 >
                                 <input
                                     type="email"
-                                    id="contact_email"
-                                    name="contact_email"
+                                    id="company_email"
+                                    name="company_email"
                                     className="border rounded w-full py-2 px-3"
                                     placeholder="Email address for applicants"
                                     required
-                                    value={contactEmail}
-                                    onChange={(e) => setContactEmail(e.target.value)}
+                                    value={companyEmail}
+                                    onChange={(e) => setCompanyEmail(e.target.value)}
                                 />
                             </div>
                             <div className="mb-4">
@@ -206,12 +204,12 @@ const EditJobPage = ({ updateJobSubmit }) => {
                                 >
                                 <input
                                     type="tel"
-                                    id="contact_phone"
-                                    name="contact_phone"
+                                    id="company_phone"
+                                    name="company_phone"
                                     className="border rounded w-full py-2 px-3"
                                     placeholder="Optional phone for applicants"
-                                    value={contactPhone}
-                                    onChange={(e) => setContactPhone(e.target.value)}
+                                    value={companyPhone}
+                                    onChange={(e) => setCompanyPhone(e.target.value)}
                                 />
                             </div>
 
